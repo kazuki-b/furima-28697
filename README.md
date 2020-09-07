@@ -25,7 +25,6 @@
 | comment  | text      | null: false                    |
 | category | integer   | null: false                    |
 | status   | integer   | null: false                    |
-| purchase | reference | null: false, foreign_key: true |
 | postage  | integer   | null: false                    |
 | area     | integer   | null: false                    |
 | date     | integer   | null: false                    |
@@ -44,8 +43,8 @@
 | prefecture     | integer   | null: false                    |
 | city           | string    | null: false                    |
 | address        | string    | null: false                    |
-| building_name  | string    | null: false                    |
-| phone_number   | string    |                                |
+| building_name  | string    |                                |
+| phone_number   | string    | null: false                    |
 | item           | reference | null: false, foreign_key: true |
 
 ### Association
@@ -59,6 +58,6 @@
 | item     | reference | null: false, foreign_key: true |
 
 ### Association
-- has_one    :deliveries
+- has_one    :delivery
 - belongs_to :item
 - belongs_to :user
