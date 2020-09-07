@@ -22,7 +22,6 @@
 | Column   | Type      | Options                        |
 | -------- | --------- | ------------------------------ |
 | name     | string    | null: false                    |
-| image    | string    | null: false                    |
 | comment  | text      | null: false                    |
 | category | integer   | null: false                    |
 | status   | integer   | null: false                    |
@@ -35,18 +34,18 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :purchase
+- has_one    :purchase
 
 ## deliveriesテーブル
 
 | Column         | Type      | Options                        |
 | -------------- | --------- | ------------------------------ |
-| postal_cord    | integer   | null: false                    |
-| prefecture     | string    | null: false                    |
+| postal_cord    | string   | null: false                    |
+| prefecture     | integer   | null: false                    |
 | city           | string    | null: false                    |
 | address        | string    | null: false                    |
 | building_name  | string    | null: false                    |
-| phone_number   | integer   | null: false                    |
+| phone_number   | string    |                                |
 | item           | reference | null: false, foreign_key: true |
 
 ### Association
@@ -61,4 +60,5 @@
 
 ### Association
 - has_one    :deliveries
+- belongs_to :item
 - belongs_to :user
