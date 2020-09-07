@@ -39,13 +39,12 @@
 
 | Column         | Type      | Options                        |
 | -------------- | --------- | ------------------------------ |
-| postal_cord    | string   | null: false                    |
+| postal_cord    | string    | null: false                    |
 | prefecture     | integer   | null: false                    |
 | city           | string    | null: false                    |
 | address        | string    | null: false                    |
 | building_name  | string    |                                |
 | phone_number   | string    | null: false                    |
-| item           | reference | null: false, foreign_key: true |
 | purchase       | reference | null: false, foreign_key: true |
 
 ### Association
