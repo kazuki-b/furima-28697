@@ -11,10 +11,11 @@
 | first_name      | string     | null: false |
 | last_name_kana  | string     | null: false |
 | first_name_kana | string     | null: false |
-| birthday        | integer    | null: false |
+| birthday        | date       | null: false |
 
 ### Association
 - has_many :items
+- has_many :purchases
 
 ## itemsテーブル
 
@@ -23,51 +24,41 @@
 | name     | string    | null: false                    |
 | image    | string    | null: false                    |
 | comment  | text      | null: false                    |
-| category | string    | null: false                    |
-| status   | string    | null: false                    |
+| category | integer   | null: false                    |
+| status   | integer   | null: false                    |
+| purchase | reference | null: false, foreign_key: true |
+| postage  | integer   | null: false                    |
+| area     | integer   | null: false                    |
+| date     | integer   | null: false                    |
 | price    | integer   | null: false                    |
 | user     | reference | null: false, foreign_key: true |
-| purchase | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- belongs_to :purchases
-- has_one    :delivery
+- belongs_to :purchase
 
 ## deliveriesテーブル
 
-| Column  | Type      | Options                        |
-| ------- | --------- | ------------------------------ |
-| postage | integer   | null: false                    |
-| area    | string    | null: false                    |
-| date    | date      | null: false                    |
-| item    | reference | null: false, foreign_key: true |
-
-### Association
-- belongs_to :item
-
-## purchasesテーブル
-
-| Column         | Type    | Options                        |
-| -------------- | ------- | ------------------------------ |
-| prefecture     | string  | null: false, foreign_key: true |
-| city           | string  | null: false, foreign_key: true |
-| building_name  | string  | null: false, foreign_key: true |
-| phone_number   | integer | null: false, foreign_key: true |
-
-### Association
-- has_many  :items
-- has_one   :card
-
-## cardsテーブル
-
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| card_number    | integer    | null: false                    |
-| date           | date       | null: false                    |
-| security_cord  | integer    | null: false                    |
-| postal_cord    | integer    | null: false                    |
-| purchase       | references | null: false, foreign_key: true |
+| Column         | Type      | Options                        |
+| -------------- | --------- | ------------------------------ |
+| postal_cord    | integer   | null: false                    |
+| prefecture     | string    | null: false                    |
+| city           | string    | null: false                    |
+| address        | string    | null: false                    |
+| building_name  | string    | null: false                    |
+| phone_number   | integer   | null: false                    |
+| item           | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :purchase
+
+## purchasesテーブル
+
+| Column   | Type      | Options                        |
+| -------- | --------- | ------------------------------ |
+| user     | reference | null: false, foreign_key: true |
+| item     | reference | null: false, foreign_key: true |
+
+### Association
+- has_one    :deliveries
+- belongs_to :user
