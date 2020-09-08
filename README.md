@@ -19,28 +19,34 @@
 
 ## itemsテーブル
 
-| Column   | Type      | Options                        |
-| -------- | --------- | ------------------------------ |
-| name     | string    | null: false                    |
-| comment  | text      | null: false                    |
-| category | integer   | null: false                    |
-| status   | integer   | null: false                    |
-| postage  | integer   | null: false                    |
-| area     | integer   | null: false                    |
-| date     | integer   | null: false                    |
-| price    | integer   | null: false                    |
-| user     | reference | null: false, foreign_key: true |
+| Column      | Type      | Options                        |
+| ----------- | --------- | ------------------------------ |
+| name        | string    | null: false                    |
+| comment     | text      | null: false                    |
+| category_id | integer   | null: false                    |
+| status_id   | integer   | null: false                    |
+| postage_id  | integer   | null: false                    |
+| area_id     | integer   | null: false                    |
+| date_id     | integer   | null: false                    |
+| price       | integer   | null: false                    |
+| user        | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - has_one    :purchase
+- belongs_to_active_hash :category
+- belongs_to_active_hash :status
+- belongs_to_active_hash :postage
+- belongs_to_active_hash :area
+- belongs_to_active_hash :date
+
 
 ## deliveriesテーブル
 
 | Column         | Type      | Options                        |
 | -------------- | --------- | ------------------------------ |
 | postal_cord    | string    | null: false                    |
-| prefecture     | integer   | null: false                    |
+| prefecture_id  | integer   | null: false                    |
 | city           | string    | null: false                    |
 | address        | string    | null: false                    |
 | building_name  | string    |                                |
@@ -49,6 +55,7 @@
 
 ### Association
 - belongs_to :purchase
+- belongs_to_active_hash :prefecture
 
 ## purchasesテーブル
 
