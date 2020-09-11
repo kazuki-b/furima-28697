@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'tops/index'
+  root to: "tops#index"
   devise_for :users
-  root to:"tops#index"
+  resources :tops
+  resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
