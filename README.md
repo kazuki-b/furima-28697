@@ -19,17 +19,17 @@
 
 ## itemsテーブル
 
-| Column      | Type      | Options                        |
-| ----------- | --------- | ------------------------------ |
-| name        | string    | null: false                    |
-| comment     | text      | null: false                    |
-| category_id | integer   | null: false                    |
-| status_id   | integer   | null: false                    |
-| postage_id  | integer   | null: false                    |
-| area_id     | integer   | null: false                    |
-| date_id     | integer   | null: false                    |
-| price       | integer   | null: false                    |
-| user        | reference | null: false, foreign_key: true |
+| Column       | Type      | Options                        |
+| ------------ | --------- | ------------------------------ |
+| name         | string    | null: false                    |
+| comment      | text      | null: false                    |
+| category_id  | integer   | null: false                    |
+| status_id    | integer   | null: false                    |
+| postage_id   | integer   | null: false                    |
+| area_id      | integer   | null: false                    |
+| ship_date_id | integer   | null: false                    |
+| price        | integer   | null: false                    |
+| user         | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -38,7 +38,7 @@
 - belongs_to_active_hash :status
 - belongs_to_active_hash :postage
 - belongs_to_active_hash :area
-- belongs_to_active_hash :date
+- belongs_to_active_hash :ship_date
 
 
 ## deliveriesテーブル
