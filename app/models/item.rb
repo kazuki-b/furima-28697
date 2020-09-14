@@ -17,7 +17,7 @@ class Item < ApplicationRecord
     validates :ship_date_id
     validates :name
     validates :comment
-    validates :price,                  inclusion: 300..9999999
+    validates :price, inclusion: 300..9999999
     validates :image
     validates :user_id
   end
