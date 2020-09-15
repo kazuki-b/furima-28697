@@ -1,11 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!
-
-  def index
-  end
+  # before_action :authenticate_user!
 
   def new
     @item = Item.new
+    authenticate_user!
   end
 
   def create
@@ -15,6 +13,10 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   private
