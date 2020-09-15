@@ -17,15 +17,14 @@ class Item < ApplicationRecord
     validates :ship_date_id
     validates :name
     validates :comment
-    validates :price, inclusion: 300..9999999
+    validates :price, inclusion: 300..9_999_999
     validates :image
     validates :user_id
   end
 
-  validates :category_id,numericality: { other_than: 1 }
-  validates :status_id,numericality: { other_than: 1 }
-  validates :area_id,numericality: { other_than: 1 }
-  validates :postage_id,numericality: { other_than: 1 }
+  validates :category_id, numericality: { other_than: 1 }
+  validates :status_id, numericality: { other_than: 1 }
+  validates :area_id, numericality: { other_than: 1 }
+  validates :postage_id, numericality: { other_than: 1 }
   validates :ship_date_id, numericality: { other_than: 1 }
-  
 end
