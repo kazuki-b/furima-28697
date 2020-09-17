@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :tops
   resources :users
-  resources :items
-
+  resources :items do
+      resources :purchases
+  end
+  resources :deliveries
   get 'items/:id', to: 'items#calculation'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
