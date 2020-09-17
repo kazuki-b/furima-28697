@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :ship_date
   belongs_to             :user, optional: true
   has_one_attached       :image
-  # has_one    :purcha
+  has_one                :purchase
 
   with_options presence: true do
     validates :category_id
