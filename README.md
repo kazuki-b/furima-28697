@@ -46,7 +46,7 @@
 | Column         | Type      | Options                        |
 | -------------- | --------- | ------------------------------ |
 | postal_cord    | string    | null: false                    |
-| prefecture_id  | integer   | null: false                    |
+| area_id        | integer   | null: false                    |
 | city           | string    | null: false                    |
 | address        | string    | null: false                    |
 | building_name  | string    |                                |
@@ -55,7 +55,7 @@
 
 ### Association
 - belongs_to :purchase
-- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :area
 
 ## purchasesテーブル
 

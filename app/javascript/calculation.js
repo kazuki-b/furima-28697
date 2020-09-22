@@ -4,10 +4,19 @@ function calculation(){
   const profit = document.getElementById("profit");
     priceInput.addEventListener('keyup', () => {
       const value = priceInput.value;
-      let fee = value * 0.1
-      let gains = value - fee
-      add_tax.textContent = fee;
-      profit.textContent = gains;
+      
+      if (value >= 300 && value <= 9999999){
+        let fee = value * 0.1
+        let gains = value - fee
+        add_tax.textContent = fee;
+        profit.textContent = gains;
+      } else {
+        let fee = '-';
+        let gains = '-';
+        add_tax.textContent = fee;
+        profit.textContent = gains;
+      }
     });
-  }
-window.addEventListener('load', calculation);
+  };
+
+  window.addEventListener('load', calculation);
